@@ -1,0 +1,8 @@
+{
+  "name": "agent-memory-auditor",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "description": "OpenClaw plugin for memory quality auditing",
+  "openclaw": { "extensions": ["./index.js"] }
+}

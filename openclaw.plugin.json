@@ -1,0 +1,15 @@
+{
+  "id": "agent-memory-auditor",
+  "name": "Agent Memory Auditor",
+  "description": "Audits markdown memory files for quality issues.",
+  "version": "0.1.0",
+  "skills": ["skills/agent-memory-auditor"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": { "type": "boolean", "default": true },
+      "memoryDir": { "type": "string", "default": "memory" }
+    }
+  }
+}
