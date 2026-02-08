@@ -22,7 +22,7 @@ export default function register(api) {
 
   api.registerCommand({
     name: "memory-audit",
-    description: "Audit memory files. Usage: /memory-audit [status|run]",
+    description: "Audit memory files. Usage: /memory-audit [status|config-check|run]",
     acceptsArgs: true,
     requireAuth: true,
     handler: async (ctx) => {
@@ -40,15 +40,18 @@ export default function register(api) {
         ].join("\n") };
       }
 
+      if (arg === "config-check") {
+        const r = await run("python3", ["src/audit.py", "config-check", "--config", "audit.config.json"], __dirname);
+        return { text: (r.out || r.err || "config-check finished").trim() };
+      }
+
       if (arg === "run" || arg === "") {
-        const r = await run("python3", ["src/audit.py", "--dir", "memory", "--out", "report.md", "--json", "report.json"], __dirname);
-        if (r.code !== 0) {
-          return { text: "Audit failed:\n" + (r.err || r.out) };
-        }
+        const r = await run("python3", ["src/audit.py", "run", "--dir", "memory", "--config", "audit.config.json", "--out", "report.md", "--json", "report.json"], __dirname);
+        if (r.code !== 0) return { text: "Audit failed:\n" + (r.err || r.out) };
         return { text: "✅ Memory audit completed. Artifacts: report.md, report.json" };
       }
 
-      return { text: "Usage:\n/memory-audit\n/memory-audit status\n/memory-audit run" };
+      return { text: "Usage:\n/memory-audit\n/memory-audit status\n/memory-audit config-check\n/memory-audit run" };
     },
   });
 }

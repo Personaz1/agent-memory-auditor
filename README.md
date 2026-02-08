@@ -57,3 +57,10 @@ MIT
 - Ignore rules (`ignore_patterns`)
 - Multi-folder scan (`memory/**/*.md`) + optional `MEMORY.md`
 - Remediation suggestions in markdown report
+
+
+## v0.3 additions
+
+- `/memory-audit config-check`
+- strict mode: `python3 src/audit.py run --strict ...`
+- CI memory quality gate workflow

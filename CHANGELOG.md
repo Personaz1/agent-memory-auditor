@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 - 2026-02-08
+- Added `config-check` command (CLI + plugin slash command)
+- Added `--strict` mode (non-zero exit below threshold)
+- Added GitHub Actions memory quality gate workflow
+
 ## 0.2.0 - 2026-02-08
 - Added configurable scoring weights (`audit.config.json`)
 - Added ignore patterns support

@@ -1,0 +1,18 @@
+name: memory-quality-gate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Config check
+        run: python3 src/audit.py config-check --config audit.config.json
+      - name: Strict memory audit
+        run: python3 src/audit.py run --dir memory --config audit.config.json --strict --out report.md --json report.json
