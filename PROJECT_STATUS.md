@@ -1,7 +1,7 @@
 # Project Status
 
 title: agent-memory-auditor
-version: 0.1.0
+version: 0.2.0
 maturity: beta-scaffold
 primary_command: /memory-audit
 has_demo: true

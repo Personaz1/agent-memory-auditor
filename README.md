@@ -49,3 +49,11 @@ bash demo/run_demo.sh
 ## License
 
 MIT
+
+
+## v0.2 additions
+
+- Configurable score weights via `audit.config.json`
+- Ignore rules (`ignore_patterns`)
+- Multi-folder scan (`memory/**/*.md`) + optional `MEMORY.md`
+- Remediation suggestions in markdown report

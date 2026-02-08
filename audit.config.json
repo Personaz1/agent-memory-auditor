@@ -1,0 +1,10 @@
+{
+  "weights": {
+    "duplicate": 2,
+    "stale": 1,
+    "contradiction": 5
+  },
+  "ignore_patterns": [
+    "memory/archive/*"
+  ]
+}
